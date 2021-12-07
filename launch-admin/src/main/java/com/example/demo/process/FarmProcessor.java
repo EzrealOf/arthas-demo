@@ -12,7 +12,7 @@ public class FarmProcessor {
     private static final Logger logger = LoggerFactory.getLogger(FarmProcessor.class);
 
     private static final String CONNECTOR_SPI_DIR = "/plugin";
-    private static final String CONNECTOR_STANDBY_SPI_DIR = "/launch-admin/plugin";
+    private static final String CONNECTOR_STANDBY_SPI_DIR = "/classes/plugin";
 
     private FarmInterface farmInterface;
     private String farmName;

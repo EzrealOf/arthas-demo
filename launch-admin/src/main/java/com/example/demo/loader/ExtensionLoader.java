@@ -28,7 +28,7 @@ public class ExtensionLoader<T> {
 
     private static final String SERVICES_DIRECTORY = "META-INF/services/";
 
-    private static final String CANAL_DIRECTORY = "META-INF/canal/";
+    private static final String CANAL_DIRECTORY = "META-INF/FARM/";
 
     private static final String DEFAULT_CLASSLOADER_POLICY = "internal";
 
@@ -282,13 +282,13 @@ public class ExtensionLoader<T> {
 
                         ClassLoader parent = Thread.currentThread().getContextClassLoader();
                         URLClassLoader localClassLoader;
-                        if (classLoaderPolicy == null || "".equals(classLoaderPolicy)
+                        /*if (classLoaderPolicy == null || "".equals(classLoaderPolicy)
                                 || DEFAULT_CLASSLOADER_POLICY.equalsIgnoreCase(classLoaderPolicy)) {
                             localClassLoader = new URLClassExtensionLoader(new URL[]{url});
                         } else {
                             localClassLoader = new URLClassLoader(new URL[]{url}, parent);
-                        }
-
+                        }*/
+                        localClassLoader = new URLClassLoader(new URL[]{url}, parent);
                         loadFile(extensionClasses, CANAL_DIRECTORY, localClassLoader);
                         loadFile(extensionClasses, SERVICES_DIRECTORY, localClassLoader);
                     }
