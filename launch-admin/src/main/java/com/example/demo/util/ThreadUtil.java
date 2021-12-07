@@ -1,5 +1,7 @@
 package com.example.demo.util;
 
+import com.example.demo.factory.NamedThreadFactory;
+
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -14,20 +16,13 @@ public class ThreadUtil {
         }
     }
 
-    public static ThreadPoolExecutor newFixedThreadPool(int nThreads, long keepAliveTime) {
+    public static ThreadPoolExecutor newFixedThreadPool(int nThreads, long keepAliveTime, String name) {
         return new ThreadPoolExecutor(nThreads,
                 nThreads,
                 keepAliveTime,
                 TimeUnit.MILLISECONDS,
                 new SynchronousQueue<>(),
-                (r, exe) -> {
-                    if (!exe.isShutdown()) {
-                        try {
-                            exe.getQueue().put(r);
-                        } catch (InterruptedException e) {
-                            // ignore
-                        }
-                    }
+                new NamedThreadFactory(name) {
                 });
     }
 }

@@ -42,8 +42,6 @@ public class URLClassExtensionLoader extends URLClassLoader {
      * @param  name
      *         The <a href="#name">binary name</a> of the class
      *
-     * @param  resolve
-     *         If <tt>true</tt> then resolve the class
      *
      * @return  The resulting <tt>Class</tt> object
      *
