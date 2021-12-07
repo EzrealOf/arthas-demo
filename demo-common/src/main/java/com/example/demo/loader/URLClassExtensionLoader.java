@@ -59,7 +59,7 @@ public class URLClassExtensionLoader extends URLClassLoader {
         if (name.startsWith("java.") || name.startsWith("org.slf4j.")){
             c = super.loadClass(name);
         }
-        if (name.startsWith("demo.api.")){
+        if (name.startsWith("demo.spi.")){
             c = super.loadClass(name);
         }
         if (c != null) return c;
