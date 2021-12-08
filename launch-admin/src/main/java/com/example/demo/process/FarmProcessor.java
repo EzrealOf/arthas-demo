@@ -25,7 +25,7 @@ public class FarmProcessor {
     public FarmProcessor(FarmConfig config) {
         this.farmName = config.getName();
         ExtensionLoader<FarmInterface> loader = new ExtensionLoader<>(FarmInterface.class);
-        farmInterface = loader.getExtension(config.getName().toLowerCase(), CONNECTOR_SPI_DIR, CONNECTOR_STANDBY_SPI_DIR);
+        farmInterface = loader.getExtension(config.getType().toLowerCase(), CONNECTOR_SPI_DIR, CONNECTOR_STANDBY_SPI_DIR);
 
         ClassLoader cl = Thread.currentThread().getContextClassLoader();
         Thread.currentThread().setContextClassLoader(farmInterface.getClass().getClassLoader());

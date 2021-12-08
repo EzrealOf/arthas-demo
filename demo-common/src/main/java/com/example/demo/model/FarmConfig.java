@@ -9,4 +9,5 @@ public class FarmConfig {
 
     private String name;
 
+    private String type;
 }

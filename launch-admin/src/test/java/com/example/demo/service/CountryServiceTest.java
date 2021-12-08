@@ -12,7 +12,7 @@ public class CountryServiceTest extends DemoApplicationTests {
 
     @Test
     void start() {
-        FarmConfig config = FarmConfig.builder().name("quick").build();
+        FarmConfig config = FarmConfig.builder().name("ez").type("quick").build();
         countryService.start(config);
     }
 
