@@ -20,8 +20,8 @@ public class CountryController {
 
 
     @GetMapping("/initFarm")
-    public String initFarm(@RequestParam("name") String name) {
-        FarmConfig config = FarmConfig.builder().name(name).build();
+    public String initFarm(@RequestParam("name") String name, @RequestParam("type")String type) {
+        FarmConfig config = FarmConfig.builder().name(name).type(type).build();
         countryService.start(config);
         return "success";
     }
