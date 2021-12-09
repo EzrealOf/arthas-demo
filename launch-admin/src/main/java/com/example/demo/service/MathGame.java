@@ -1,5 +1,9 @@
 package com.example.demo.service;
 
+import com.example.demo.controller.CountryController;
+import com.example.demo.util.ThreadUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,6 +13,8 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class MathGame {
+
+    private static final Logger logger = LoggerFactory.getLogger(MathGame.class);
     private static Random random = new Random();
 
     private int illegalArgumentCount = 0;
@@ -49,6 +55,8 @@ public class MathGame {
     }
 
     public List<Integer> primeFactors(int number) {
+        logger.info("----------input:{}", number);
+        ThreadUtil.sleep(1000);
         if (number < 2) {
             illegalArgumentCount++;
             throw new IllegalArgumentException("number is: " + number + ", need >= 2");
