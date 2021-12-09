@@ -6,7 +6,9 @@
         <module>launch-admin</module>
 		<module>demo-common</module>
         <module>demo-duck</module>
-    </modules>
+        <module>dubbo-client-demo</module>
+		<module>dubbo-server-demo</module>
+	</modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
